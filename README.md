@@ -41,16 +41,14 @@ has_many:comments
                                                             
 | Column         | Type       | Options                      |
 | ---------      | ---------- | -----------------------------|
-| postalcode     | string     | null: false ,foreign_key:true| #郵便番号
-| prefecture_id  | integer    | null: false ,foreign_key:true| #都道府県
-| municipality   | string     | null: false ,foreign_key:true| #市区町村
-| address        | string     | null: false ,foreign_key:true| #番地
-| building       | string     | foreign_key:true             | #建物名
-| phone          | string     | null: false ,foreign_key:true| #電話番号
+| postalcode     | string     | null: false                  | #郵便番号
+| prefecture_id  | integer    | null: false                  | #都道府県
+| municipality   | string     | null: false                  | #市区町村
+| address        | string     | null: false                  | #番地
+| building       | string     |                              | #建物名
+| phone          | string     | null: false                  | #電話番号
 
 ## association
-belong_to :user
-belong_to:item
 belong_to:purchases
 
 
@@ -76,4 +74,4 @@ belong_to :item
 ## association
 belong_to :user
 belong_to :item
-has_many : order
+has_one : order
