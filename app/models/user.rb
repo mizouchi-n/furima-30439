@@ -15,6 +15,7 @@ class User < ApplicationRecord
     validates :fir_name, format: zenkaku
     validates :las_name_r, format: katakana
     validates :fir_name_r,format: katakana
+    validates :birthday
   end
 end
 

@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
       it "emailに＠が含まれていないと登録できない" do
         @user.email = "aaa123"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Email is invalid")
       end
 
       it "重複したemailが存在する場合登録できない" do
@@ -48,8 +48,8 @@ RSpec.describe User, type: :model do
       end
 
       it "passwordが英数字混合だが、字数が5文字以下であれば登録できない" do
-        @user.password = "aaa123"
-        @user.password_confirmation = "aaa123"
+        @user.password = "aa123"
+        @user.password_confirmation = "aa123"
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
