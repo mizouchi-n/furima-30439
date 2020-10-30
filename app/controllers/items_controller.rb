@@ -1,23 +1,24 @@
 class ItemsController < ApplicationController
  
-    def index
-    end
+  before_action :authenticate_user!, except: :index 
+  
     def new
+        @item = Item.new
     end   
 
     def create
-        @user = User.new(user_params)
-        if @user.save
-            redirect_to login_path
+        @item = Item.new(item_params)
+        if @item.save
+            redirect_to root_path
         else
-            render 'new'
-        end
+          render :new
+        end 
     end
 
-private
 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+    private
+    
+    def item_params
+        params.require(:item).permit(:image,:name,:description,:price,:category_id,:status_id, :burden_id,:area_id, :day_id,user_ids: [] ).merge(user_id: current_user.id)
     end
-
 end

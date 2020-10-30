@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Fir name is invalid")
       end
 
-      it "本名(苗字）のフリガナが全角片仮名出ないと保存できない" do
+      it "本名(苗字）のフリガナが全角片仮名でないと保存できない" do
         @user.las_name_r = "あいう"
         @user.valid?
         expect(@user.errors.full_messages).to include("Las name r is invalid")
@@ -121,7 +121,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Las name r is invalid")
       end
       
-      it "本名(名前）のフリガナが全角片仮名出ないと保存できない" do
+      it "本名(名前）のフリガナが全角片仮名でないと保存できない" do
         @user.fir_name_r = "あいう"
         @user.valid?
         expect(@user.errors.full_messages).to include("Fir name r is invalid")

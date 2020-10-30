@@ -29,11 +29,11 @@ has_many :comments
 | status_id  | integer          | null: false                    | #商品の状態
 | burden_id  | integer          | null: false                    | #配送者の負担
 | area_id    | integer          | null: false                    | #発送元地域
-| date_id    | integer          | null: false                    | #発送日の目安
+| day_id     | integer          | null: false                    | #発送日の目安
 | price      | integer          | null: false                    | #商品価格
 
 ## association
-belong_to :user
+belongs_to :user
 has_one :order
 has_many:comments
 
@@ -49,7 +49,7 @@ has_many:comments
 | phone          | string     | null: false                  | #電話番号
 
 ## association
-belong_to:purchases
+belongs_to:purchases
 
 
 ## comments テーブル
@@ -61,8 +61,8 @@ belong_to:purchases
 | text        | text       |null: false                     | #商品ページのコメント
 
 ## association
-belong_to :user
-belong_to :item
+belongs_to :user
+belongs_to :item
 
 ## purchases テーブル
 
@@ -72,6 +72,6 @@ belong_to :item
 | item_id     | integer    |null:false, foreign_key:true    | #アイテムID 
 
 ## association
-belong_to :user
-belong_to :item
+belongs_to :user
+belongs_to :item
 has_one : order
