@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @purchases = Purchase.all
+    @items.order(:created_at)
   end
 
   def new
@@ -17,12 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to @item
   end
 
   private
