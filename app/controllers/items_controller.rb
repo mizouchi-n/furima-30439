@@ -1,36 +1,33 @@
 class ItemsController < ApplicationController
- 
-  before_action :authenticate_user!, except: :index 
+  before_action :authenticate_user!, except: :index
 
-   def index
+  def index
     @items = Item.all
-    @purchases = Purchase.all 
-   end
-  
-    def new
-        @item = Item.new
-    end   
+    @purchases = Purchase.all
+  end
 
-    def create
-        @item = Item.new(item_params)
-        if @item.save
-            redirect_to root_path
-        else
-          render :new
-        end 
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
     end
+  end
 
-    def update
-        @item = Item.find(params[:id])
-        @item.update(item_params)
-        redirect_to @item
-    end
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to @item
+  end
 
+  private
 
-
-    private
-    
-    def item_params
-        params.require(:item).permit(:image,:name,:description,:price,:category_id,:status_id, :burden_id,:area_id, :day_id,user_ids: [] ).merge(user_id: current_user.id)
-    end
+  def item_params
+    params.require(:item).permit(:image, :name, :description, :price, :category_id, :status_id, :burden_id, :area_id, :day_id, user_ids: []).merge(user_id: current_user.id)
+  end
 end
