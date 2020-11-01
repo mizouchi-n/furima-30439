@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
  
   before_action :authenticate_user!, except: :index 
+
+   def index
+    @items = Item.all
+    @purchases = Purchase.all 
+   end
   
     def new
         @item = Item.new
@@ -14,6 +19,13 @@ class ItemsController < ApplicationController
           render :new
         end 
     end
+
+    def update
+        @item = Item.find(params[:id])
+        @item.update(item_params)
+        redirect_to @item
+    end
+
 
 
     private
