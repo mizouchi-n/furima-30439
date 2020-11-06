@@ -34,17 +34,18 @@ ActiveRecord::Schema.define(version: 2020_11_03_055235) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "user_id"
-    t.integer "category_id"
-    t.integer "status_id"
-    t.integer "burden_id"
-    t.integer "area_id"
-    t.integer "price"
+    t.string "img"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "burden_id", null: false
+    t.integer "area_id", null: false
+    t.integer "day_id", null: false
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "day_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
