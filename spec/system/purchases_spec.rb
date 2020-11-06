@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Purchase, type: :model do
+RSpec.describe "Purchases", type: :system do
   before do
     @purchase = FactoryBot.build(:purchase)
   end
-end
-
