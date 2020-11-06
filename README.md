@@ -49,7 +49,7 @@ has_many:comments
 | phone          | string     | null: false                  | #電話番号
 
 ## association
-belongs_to:purchases
+belongs_to:purchase
 
 
 ## comments テーブル
