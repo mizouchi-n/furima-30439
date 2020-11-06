@@ -4,7 +4,19 @@ RSpec.describe Order, type: :model do
   before do
   @order = FactoryBot.build(:order)
   end
-    
+   
+  it '全項目埋まっていると購入できる' do
+    expect(@order).to be_valid
+  end
+
+  it "建物名がなくても購入できること" do
+    @order.building = nil
+    expect(@order).to be_valid
+  end
+
+  it "全ての情報が正しく入っていれば購入できる" do
+  end
+
   it "郵便番号が空では登録できないこと" do
     @order.postalcode = nil
     @order.valid?
@@ -49,7 +61,7 @@ RSpec.describe Order, type: :model do
   end
 
   it "電話番号が12文字以上だと登録できないこと" do
-    @order.postalcode = "000000000000"
+    @order.phone = "090000000000"
     @order.valid?
     expect(@order.errors.full_messages).to include("Phone is invalid")
   end
