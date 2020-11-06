@@ -5,14 +5,17 @@ RSpec.describe Order, type: :model do
   @order = FactoryBot.build(:order)
   end
    
-  it '全項目埋まっていると購入できる' do
-    expect(@order).to be_valid
+  context"全ての情報が正しく入っていれば購入できる" do
+    it '全項目埋まっていると購入できる' do
+        expect(@order).to be_valid
+      end
+    
+      it "建物名がなくても購入できること" do
+        @order.building = nil
+        expect(@order).to be_valid
+      end
   end
 
-  it "建物名がなくても購入できること" do
-    @order.building = nil
-    expect(@order).to be_valid
-  end
 
   it "全ての情報が正しく入っていれば購入できる" do
   end
