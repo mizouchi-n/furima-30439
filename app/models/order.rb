@@ -11,7 +11,7 @@ class Order < ApplicationRecord
       validates  :phone,  format: { with: dennwa }
     end
 
-    validates  :building, presence: true
+   
 
     belongs_to  :purchase, optional: true
 end

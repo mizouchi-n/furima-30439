@@ -15,7 +15,7 @@ class PurchaseAddress
       validates :token, presence: true 
     end
 
-    validates :building, presence: true
+   
 
     def save
       purchase_address = Purchase.create(item_id:item_id, user_id:user_id)

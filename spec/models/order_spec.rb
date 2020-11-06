@@ -29,11 +29,6 @@ RSpec.describe Order, type: :model do
     expect(@order.errors.full_messages).to include("Address can't be blank")
   end
 
-  it "建物名が空では登録できないこと" do
-    @order.building = nil
-    @order.valid?
-    expect(@order.errors.full_messages).to include("Building can't be blank")
-  end
 
   it "電話番号が空では登録できないこと" do
     @order.phone = nil
