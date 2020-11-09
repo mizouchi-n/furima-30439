@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'passwordが数字だけだと保存できない' do
-      @user.password = '123'
+      @user.password = '123123'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
